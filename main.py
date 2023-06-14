@@ -18,5 +18,8 @@ def index(request: Request):
 
 @app.post("/tts")
 def tts(text: Text):
+    global audio_count
     speach = gTTS(text=text.text, lang="en", slow=False)
-    speach.save("audio/test.mp3")
+    audio_count += 1
+    speach.save(f"audio/{audio_count}.mp3")
+    audio_count_save(audio_count)
