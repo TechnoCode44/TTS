@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 
 from gtts import gTTS
 from query_json import *
+from log_loader import *
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="webpage"), name="static")
