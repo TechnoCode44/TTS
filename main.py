@@ -1,12 +1,19 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
 from gtts import gTTS
 from query_json import *
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="webpage"), name="static")
 
-@app.get("/")
-def index():
-    return "Hi"
+webpage = Jinja2Templates(directory="webpage")
+
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request):
+    return webpage.TemplateResponse("index.html", {"request": request})
 
 @app.post("/tts")
 def tts(text: Text):
