@@ -13,7 +13,9 @@ function submit() {
             "Content-Type": "application/json"
           },
         body: json
-    });
+    })
+    .then(response => response.json())
+    .then(id => console.log(id));
 
     text.value = ""
 }

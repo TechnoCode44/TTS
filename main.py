@@ -9,6 +9,7 @@ from log_loader import *
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="webpage"), name="static")
+app.mount("/audio", StaticFiles(directory="audio"), name="audio")
 
 webpage = Jinja2Templates(directory="webpage")
 
@@ -23,3 +24,4 @@ def tts(text: Text):
     audio_count += 1
     speach.save(f"audio/{audio_count}.mp3")
     audio_count_save(audio_count)
+    return audio_count
