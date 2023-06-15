@@ -1,3 +1,16 @@
+function audioPreview(audioId) {
+    path = `/audio/${audioId}.mp3`;
+
+    const controls = document.createElement("audio");
+    controls.controls = true;
+    const preview = document.createElement("source");
+    preview.src = path;
+    preview.type = "audio/mpeg";
+
+    controls.appendChild(preview);
+    document.body.appendChild(controls)
+}
+
 function submit() {
     const text = document.getElementById("text");
 
@@ -15,7 +28,7 @@ function submit() {
         body: json
     })
     .then(response => response.json())
-    .then(id => console.log(id));
+    .then(id => audioPreview(id));
 
-    text.value = ""
+    text.value = "";
 }
