@@ -17,7 +17,7 @@ h1 {
     width: 75rem;
 }
 
-#center {
+.center {
     display: flex;
     align-items: center;
     justify-content: center;
