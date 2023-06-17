@@ -9,8 +9,12 @@
 </head>
 <body>
     <h1>Rayan's Text To Speach</h1>
-    <textarea type="text" id="text"></textarea>
-    <button type="button" onclick="submit()">Generate</button>
+    <div id="center">
+        <textarea type="text" id="text"></textarea>
+    </div>
+    <div id="center">
+        <button type="button" onclick="submit()">Generate</button>
+    </div>
     <script>
         const input = document.getElementById("text");
         input.style.cssText = `height: ${input.scrollHeight}px; overflow-y:hidden`;
