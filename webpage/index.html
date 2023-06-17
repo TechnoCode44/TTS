@@ -11,5 +11,14 @@
     <h1>Rayan's Text To Speach</h1>
     <textarea type="text" id="text"></textarea>
     <button type="button" onclick="submit()">Generate</button>
+    <script>
+        const input = document.getElementById("text");
+        input.style.cssText = `height: ${input.scrollHeight}px; overflow-y:hidden`;
+
+        input.addEventListener("input", () => {
+            input.style.height = "auto";
+            input.style.height = `${input.scrollHeight}px`
+        })
+    </script>
 </body>
 </html>
