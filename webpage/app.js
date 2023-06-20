@@ -13,7 +13,7 @@ function audioPreview(path) {
 function audioDownload(path) {
     const link = document.createElement("a");
     link.href = path;
-    link.download = "RTTS.mp3"; // Placeholder file name in file dialog
+    link.download = "TTS.mp3"; // Placeholder file name in file dialog
 
     const button = document.createElement("button");
     button.type = "button";
